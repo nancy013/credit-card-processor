@@ -1,5 +1,6 @@
 package com.sapient.creditcardprocessor.adapter.in.web.resource;
 
+import com.sapient.creditcardprocessor.validator.ValidCreditNumber;
 import io.swagger.v3.oas.annotations.Parameter;
 import lombok.Data;
 import javax.validation.constraints.DecimalMin;
@@ -17,7 +18,7 @@ public class CreditCardRequest {
     @Parameter(
             description = "Credit Card Number upto 19 digits.",
             required = true)
-    @NotBlank
+    @ValidCreditNumber
     private String cardNumber;
 
     @Parameter(

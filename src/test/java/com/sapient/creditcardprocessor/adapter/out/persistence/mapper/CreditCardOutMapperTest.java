@@ -14,7 +14,7 @@ import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CreditCardOutMapperTest {
+class CreditCardOutMapperTest {
     @Test
     void shouldMapToDomainTest(){
         final CreditCardEntity creditCardEntity = new CreditCardEntity();

@@ -22,12 +22,14 @@ import java.util.Optional;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(CreditCardPersistenceAdapter.class)
-public class CreditCardPersistenceAdapterTest {
+class CreditCardPersistenceAdapterTest {
     @MockBean
     private CreditCardRepository creditCardRepository;
 
@@ -37,7 +39,7 @@ public class CreditCardPersistenceAdapterTest {
     @DisplayName("should save credit card information into DB")
     @Test
     void shoudSaveCreditCardTest(){
-        CreditCard creditCard = mockCreditCard();
+        final CreditCard creditCard = mockCreditCard();
         when(creditCardRepository.save(any(CreditCardEntity.class))).thenReturn(mockedResponse());
         creditCardPersistenceAdapter.save(creditCard);
         verify(creditCardRepository, times(1)).save(any(CreditCardEntity.class));
@@ -46,11 +48,11 @@ public class CreditCardPersistenceAdapterTest {
     @Test
     @DisplayName("should fetch the credit cards from DB")
     void shouldFetchCreditCardsTest(){
-        List<CreditCardEntity> creditCardEntityList = new ArrayList<>();
+        final List<CreditCardEntity> creditCardEntityList = new ArrayList<>();
         creditCardEntityList.add(mockedResponse());
         Page<CreditCardEntity> pagedTasks = new PageImpl(creditCardEntityList);
         when(creditCardRepository.findAll(any(PageRequest.class))).thenReturn(pagedTasks);
-        Optional<List<CreditCard>> response = creditCardPersistenceAdapter.findAll(0,3);
+        final Optional<List<CreditCard>> response = creditCardPersistenceAdapter.findAll(0,3);
         assertThat(response.isPresent());
         assertThat(response.get().get(0).getName()).isEqualTo("XYX");
     }

@@ -26,7 +26,7 @@ import static org.mockito.Mockito.verify;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(CreditCardService.class)
-public class CreditCardServiceTest {
+class CreditCardServiceTest {
 
     @MockBean
     private CreditCardOutPort creditCardOutPort;

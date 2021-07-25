@@ -21,3 +21,7 @@ management:
       base-path: /
 server:
   port: 8086
+
+credit-card:
+  encryption:
+    secret: SECRET!!!
