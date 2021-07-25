@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: credit-card-processor
+
+  datasource:
+    url: jdbc:h2:mem:creditcarddb;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: validate
+        dialect: org.hibernate.dialect.H2Dialect
+        show_sql: false
+        connection:
+          autocommit: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health
+      base-path: /
+server:
+  port: 8086
