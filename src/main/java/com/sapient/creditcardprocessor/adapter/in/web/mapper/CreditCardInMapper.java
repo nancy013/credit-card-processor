@@ -25,8 +25,6 @@ public class CreditCardInMapper {
         creditCardResponse.setName(creditCard.getName());
         creditCardResponse.setCardNumber(creditCard.getCardNumber());
         creditCardResponse.setCreditLimit(creditCard.getCreditLimit());
-        creditCardResponse.setCreatedTime(creditCard.getCreatedTime());
-        creditCardResponse.setUpdatedTime(creditCard.getUpdatedTime());
         return Optional.of(creditCardResponse);
     }
 

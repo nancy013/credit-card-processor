@@ -15,6 +15,4 @@ public class CreditCardResponse {
     private String name;
     private String cardNumber;
     private Double creditLimit;
-    private Timestamp createdTime;
-    private Timestamp updatedTime;
 }
