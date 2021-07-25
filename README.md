@@ -11,7 +11,7 @@ Health Url:
 http://localhost:8086/health
 
 Swagger Url:
-http://localhost:8086/swagger-ui
+http://localhost:8086/swagger-ui/
 
 ## Testcases
 In order to run test cases, run below command: mvn test
